@@ -18,12 +18,12 @@ class Card extends React.Component {
     return (
       <Block row={horizontal} card flex style={cardContainer}>
        
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+        {/* <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}> */}
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={15} style={styles.cardTitle}>{item.title}</Text>
             <Text size={11} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
           </Block>
-        </TouchableWithoutFeedback>
+        {/* </TouchableWithoutFeedback> */}
       </Block>
     );
   }

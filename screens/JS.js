@@ -3,13 +3,12 @@ import { Block, Text, theme } from "galio-framework";
 import {
   Dimensions,
   Image,
-  ImageBackground,
   ScrollView,
   StyleSheet,
   TouchableWithoutFeedback,
 } from "react-native";
 //argon
-import { Images, argonTheme, articles } from "../constants/";
+import { argonTheme, articles } from "../constants/";
 
 import { Card } from "../components/";
 import React from "react";
@@ -18,24 +17,6 @@ const { width } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
 const cardWidth = width - theme.SIZES.BASE * 2;
-const categories = [
-  {
-    title: "Music Album",
-    description:
-      "Rock music is a genre of popular music. It developed during and after the 1960s in the United Kingdom.",
-    image:
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?fit=crop&w=840&q=80",
-    price: "$125",
-  },
-  {
-    title: "Events",
-    description:
-      "Rock music is a genre of popular music. It developed during and after the 1960s in the United Kingdom.",
-    image:
-      "https://images.unsplash.com/photo-1543747579-795b9c2c3ada?fit=crop&w=840&q=80",
-    price: "$35",
-  },
-];
 
 class Articles extends React.Component {
   renderProduct = (item, index) => {
@@ -82,39 +63,28 @@ class Articles extends React.Component {
   renderCards = () => {
     return (
       <Block flex style={styles.group}>
-        <Text bold size={16} style={styles.title}>
-          Cards
-        </Text>
+      
         <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[0]} horizontal />
-            <Block flex row>
-              <Card
-                item={articles[1]}
-                style={{ marginRight: theme.SIZES.BASE }}
-              />
-              <Card item={articles[2]} />
-            </Block>
+          <Block style={{ paddingHorizontal: theme.SIZES.BASE* 0.375  }}>
+          <Card item={articles[0]} full />
+              <Card item={articles[1]} full/>
+              <Card item={articles[2]} full/>
+            <Card item={articles[3]} full />
             <Card item={articles[4]} full />
+              <Card item={articles[5]} full  />
+              <Card item={articles[6]} />
+            <Card item={articles[7]} full />
+            <Card item={articles[8]} full />
+              <Card item={articles[9]} full/>
+              <Card item={articles[10]} full/>
+            <Card item={articles[11]} full />
+            <Card item={articles[12]} full />
+              <Card item={articles[13]} full />
+              <Card item={articles[14]} full/>
+            <Card item={articles[15]} full />
             <Block flex card shadow style={styles.category}>
-              <ImageBackground
-                source={{ uri: Images.Products["View article"] }}
-                style={[
-                  styles.imageBlock,
-                  { width: width - theme.SIZES.BASE * 2, height: 252 },
-                ]}
-                imageStyle={{
-                  width: width - theme.SIZES.BASE * 2,
-                  height: 252,
-                }}
-              >
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>
-                    View article
-                  </Text>
-                </Block>
-              </ImageBackground>
             </Block>
+            
           </Block>
           <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
             <ScrollView
@@ -129,52 +99,8 @@ class Articles extends React.Component {
                 paddingHorizontal: theme.SIZES.BASE / 2,
               }}
             >
-              {categories &&
-                categories.map((item, index) =>
-                  this.renderProduct(item, index)
-                )}
+             
             </ScrollView>
-          </Block>
-        </Block>
-      </Block>
-    );
-  };
-
-  renderAlbum = () => {
-    const { navigation } = this.props;
-
-    return (
-      <Block
-        flex
-        style={[styles.group, { paddingBottom: theme.SIZES.BASE * 5 }]}
-      >
-        <Text bold size={16} style={styles.title}>
-          Album
-        </Text>
-        <Block style={{ marginHorizontal: theme.SIZES.BASE * 2 }}>
-          <Block flex right>
-            <Text
-              size={12}
-              color={theme.COLORS.PRIMARY}
-              onPress={() => navigation.navigate("Home")}
-            >
-              View All
-            </Text>
-          </Block>
-          <Block
-            row
-            space="between"
-            style={{ marginTop: theme.SIZES.BASE, flexWrap: "wrap" }}
-          >
-            {Images.Viewed.map((img, index) => (
-              <Block key={`viewed-${img}`} style={styles.shadow}>
-                <Image
-                  resizeMode="cover"
-                  source={{ uri: img }}
-                  style={styles.albumThumb}
-                />
-              </Block>
-            ))}
           </Block>
         </Block>
       </Block>
@@ -186,7 +112,7 @@ class Articles extends React.Component {
       <Block flex center>
         <ScrollView showsVerticalScrollIndicator={false}>
           {this.renderCards()}
-          {this.renderAlbum()}
+          
         </ScrollView>
       </Block>
     );
@@ -245,7 +171,7 @@ const styles = StyleSheet.create({
   },
   productDescription: {
     paddingTop: theme.SIZES.BASE,
-    // paddingBottom: theme.SIZES.BASE * 2,
+     paddingBottom: theme.SIZES.BASE * 2,
   },
 });
 

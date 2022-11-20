@@ -60,7 +60,7 @@ class Profile extends React.Component {
                          &#60;p&#62;Энэ бол догол мөр&#60;/p&#62;{'\n'}
 
                          &#60;/body&#62;{'\n'}
-                         &#60;/html&#62; 
+                         &#60;/html&#62; {'\n'}
                     </Text>
                   </Block>
                   <Block flex>
@@ -161,34 +161,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     zIndex: 2
   },
-  info: {
-    paddingHorizontal: 40
-  },
-  avatarContainer: {
-    position: "relative",
-    marginTop: -80
-  },
-  avatar: {
-    width: 124,
-    height: 124,
-    borderRadius: 62,
-    borderWidth: 0
-  },
-  nameInfo: {
-    marginTop: 35
-  },
-  divider: {
-    width: "90%",
-    borderWidth: 1,
-    borderColor: "#E9ECEF"
-  },
-  thumb: {
-    borderRadius: 4,
-    marginVertical: 4,
-    alignSelf: "center",
-    width: thumbMeasure,
-    height: thumbMeasure
-  }
+
+
 });
 
 export default Profile;

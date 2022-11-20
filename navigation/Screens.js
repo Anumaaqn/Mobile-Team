@@ -1,20 +1,18 @@
 import { Animated, Dimensions, Easing } from "react-native";
 // header for screens
 import { Header, Icon } from "../components";
-import { argonTheme, tabs } from "../constants";
 
-import Articles from "../screens/Articles";
-import { Block } from "galio-framework";
+import JavaScript from "../screens/JS";
 // drawer
 import CustomDrawerContent from "./Menu";
-import Elements from "../screens/Elements";
+import Cplus from "../screens/Cplus";
 // screens
-import Home from "../screens/Home";
+import HTML from "../screens/HTML";
 import Onboarding from "../screens/Onboarding";
 import Pro from "../screens/Pro";
-import Profile from "../screens/Profile";
+import CSS from "../screens/CSS";
 import React from "react";
-import Register from "../screens/Register";
+import C from "../screens/C";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -23,48 +21,8 @@ const { width } = Dimensions.get("screen");
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-const Tab = createBottomTabNavigator();
 
-function ElementsStack(props) {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        mode: "card",
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen
-        name="Elements"
-        component={Elements}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header title="Elements" navigation={navigation} scene={scene} />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" },
-        }}
-      />
-      <Stack.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true,
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-function ArticlesStack(props) {
+function CPPStack(props) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -73,60 +31,91 @@ function ArticlesStack(props) {
       }}
     >
       <Stack.Screen
-        name="Articles"
-        component={Articles}
+        name="CPP"
+        component={Cplus}
         options={{
           header: ({ navigation, scene }) => (
-            <Header title="Articles" navigation={navigation} scene={scene} />
+            <Header title="C++" navigation={navigation} scene={scene} />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
-      <Stack.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true,
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-function ProfileStack(props) {
-  return (
-    <Stack.Navigator
-      initialRouteName="Profile"
-      screenOptions={{
-        mode: "card",
-        headerShown: "screen",
-      }}
-    >
       <Stack.Screen
         name="Profile"
-        component={Profile}
+        component={Pro}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              transparent
+              title=""
+              back
               white
-              title="Profile"
+              transparent
               navigation={navigation}
               scene={scene}
             />
           ),
-          cardStyle: { backgroundColor: "#FFFFFF" },
           headerTransparent: true,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+function CSTACK(props) {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen",
+      }}
+    >
+      <Stack.Screen
+        name="C"
+        component={C}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="C" navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+
+function JavaScriptStack(props) {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen",
+      }}
+    >
+      <Stack.Screen
+        name="JavaScript"
+        component={JavaScript}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="JavaScript" navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
       <Stack.Screen
@@ -150,7 +139,8 @@ function ProfileStack(props) {
   );
 }
 
-function HomeStack(props) {
+
+function HTMLStack(props) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -159,12 +149,57 @@ function HomeStack(props) {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="HTML"
+        component={HTML}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              title="Home"
+              title="HTML"
+              search
+              options
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
+        }}
+      />
+      <Stack.Screen
+        name="Pro"
+        component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function CSSStack(props) {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen",
+      }}
+    >
+      <Stack.Screen
+        name="CSS"
+        component={CSS}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="CSS"
               search
               options
               navigation={navigation}
@@ -248,35 +283,35 @@ function AppStack(props) {
     >
       <Drawer.Screen
         name="HTML"
-        component={HomeStack}
+        component={HTMLStack}
         options={{
           headerShown: false,
         }}
       />
       <Drawer.Screen
         name="CSS"
-        component={ProfileStack}
+        component={CSSStack}
         options={{
           headerShown: false,
         }}
       />
       <Drawer.Screen
         name="C"
-        component={Register}
+        component={CSTACK}
         options={{
           headerShown: false,
         }}
       />
       <Drawer.Screen
         name="C++"
-        component={ElementsStack}
+        component={CPPStack}
         options={{
           headerShown: false,
         }}
       />
       <Drawer.Screen
         name="JavaScript"
-        component={ArticlesStack}
+        component={JavaScriptStack}
         options={{
           headerShown: false,
         }}
