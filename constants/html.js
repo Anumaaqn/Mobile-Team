@@ -2,7 +2,8 @@ export default [
   {
     title: 'HTML гэж юу вэ…',
     cta: 'Дэлгэрэнгүй', 
-    horizontal: true
+    horizontal: true,
+    about: 'html gedeg n bla22'
   },
   {
     title: 'HTML элемэнтүүд …',

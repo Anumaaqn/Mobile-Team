@@ -19,6 +19,7 @@ class ArButton extends React.Component {
     ];
 
     return (
+      
       <Button
         style={buttonStyles}
         shadowless

@@ -7,7 +7,7 @@ import {
   Platform
 } from "react-native";
 import { Block, Text, theme } from "galio-framework";
-import { Desc , Card} from '../components';
+import {  Input, Button} from '../components';
 import { Images } from "../constants";
 import { HeaderHeight } from "../constants/utils";
 
@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get("screen");
 
 const thumbMeasure = (width - 48 - 32) / 3;
 
-class Profile extends React.Component {
+class CssCompiler extends React.Component {
   render() {
     return (
       <Block flex style={styles.profile}>
@@ -24,13 +24,43 @@ class Profile extends React.Component {
             source={Images.ProfileBackground}
             style={styles.profileContainer}
             imageStyle={styles.profileBackground}
-          >
+          >    
+      
             <ScrollView
               showsVerticalScrollIndicator={false}
               style={{ width, marginTop: '25%' }}
             >
               <Block flex style={styles.profileCard}>
-              
+              <Input value="<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>My First CSS Example</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>"
+              placeholder="Кодоо бичнэ үү"    />
+              <Button color="primary"  textStyle={{ fontSize: 15, fontWeight: '500' }} style={styles.smallButton}>Run</Button>
+              <Text>Үр дүн</Text>
+              <Input  placeholder=""    />
               </Block>
             </ScrollView>
           </ImageBackground>
@@ -47,30 +77,8 @@ const styles = StyleSheet.create({
     // marginBottom: -HeaderHeight * 2,
     flex: 1
   },
-  profileContainer: {
-    width: width,
-    height: height,
-    padding: 0,
-    zIndex: 1
-  },
-  profileBackground: {
-    width: width,
-    height: height / 2
-  },
-  profileCard: {
-    // position: "relative",
-    padding: theme.SIZES.BASE,
-    marginHorizontal: theme.SIZES.BASE,
-    marginTop: 65,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    backgroundColor: theme.COLORS.WHITE,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 8,
-    shadowOpacity: 0.2,
-    zIndex: 2
-  },
+
+
   info: {
     paddingHorizontal: 40
   },
@@ -84,4 +92,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Profile;
+export default CssCompiler;

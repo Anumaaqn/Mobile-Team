@@ -13,7 +13,12 @@ import Pro from "../screens/Pro";
 import CSS from "../screens/CSS";
 import React from "react";
 import C from "../screens/C";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HtmlCompiler from "../screens/HtmlCompiler";
+import JSCompiler from "../screens/JSCompiler";
+import CCompiler from "../screens/CCompiler";
+import CpCompiler from "../screens/CpComiler";
+import CssCompiler from "../screens/Csscompiler";
+
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -43,6 +48,23 @@ function CPPStack(props) {
       <Stack.Screen
         name="Profile"
         component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+         <Stack.Screen
+        name="CpCompiler"
+        component={CpCompiler}
         options={{
           header: ({ navigation, scene }) => (
             <Header
@@ -95,7 +117,25 @@ function CSTACK(props) {
           headerTransparent: true,
         }}
       />
+      <Stack.Screen
+        name="CCompiler"
+        component={CCompiler}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
     </Stack.Navigator>
+    
   );
 }
 
@@ -121,6 +161,23 @@ function JavaScriptStack(props) {
       <Stack.Screen
         name="Pro"
         component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+       <Stack.Screen
+        name="JSCompiler"
+        component={JSCompiler}
         options={{
           header: ({ navigation, scene }) => (
             <Header
@@ -181,6 +238,23 @@ function HTMLStack(props) {
           headerTransparent: true,
         }}
       />
+      <Stack.Screen
+        name="HtmlCompiler"
+        component={HtmlCompiler}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -212,6 +286,23 @@ function CSSStack(props) {
       <Stack.Screen
         name="Pro"
         component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true,
+        }}
+      />
+       <Stack.Screen
+        name="CssCompiler"
+        component={CssCompiler}
         options={{
           header: ({ navigation, scene }) => (
             <Header

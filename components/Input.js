@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import { Input } from "galio-framework";
 
-import Icon from './Icon';
 import { argonTheme } from "../constants";
 
 class ArInput extends React.Component {
@@ -20,19 +19,14 @@ class ArInput extends React.Component {
     ];
 
     return (
+      
       <Input
-        placeholder="write something here"
+      numberOfLines={10}
+      multiline={true}
+      
         placeholderTextColor={argonTheme.COLORS.MUTED}
         style={inputStyles}
         color={argonTheme.COLORS.HEADER}
-        iconContent={
-          <Icon
-            size={14}
-            color={argonTheme.COLORS.ICON}
-            name="link"
-            family="AntDesign"
-          />
-        }
         {...this.props}
       />
     );
@@ -55,8 +49,9 @@ const styles = StyleSheet.create({
   input: {
     borderRadius: 4,
     borderColor: argonTheme.COLORS.BORDER,
-    height: 44,
-    backgroundColor: '#FFFFFF'
+    height: 280,
+    backgroundColor: '#FFFFFF',
+    justifyContent: "flex-start"
   },
   success: {
     borderColor: argonTheme.COLORS.INPUT_SUCCESS,

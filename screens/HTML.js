@@ -4,30 +4,28 @@ import {
   Dimensions,
   ScrollView,
   StyleSheet,
-  TouchableWithoutFeedback,
 } from "react-native";
 //argon
 import {  argonTheme, html } from "../constants/";
-import { html1 } from '../html/html1';
-import { html2 } from '../html/html2';
-import { Card } from "../components/";
+import { Card , Desc, Button} from "../components/";
 import React from "react";
 
 const { width } = Dimensions.get("screen");
 
-const thumbMeasure = (width - 48 - 32) / 3;
 const cardWidth = width - theme.SIZES.BASE * 2;
 
 class Html extends React.Component {
+
   
   renderCards = () => {
+    const { navigation } = this.props;
     return (
-      <Block flex style={styles.group}>
-      
-        <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE* 0.375  }}>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}><Card item={html[0]} full /></TouchableWithoutFeedback>
-              <Card item={html[1]} full onPress={() => navigation.navigate("App")}/>
+      <Block flex style={styles.group}>  
+      <Block style={{ paddingHorizontal: theme.SIZES.BASE* 0.375  }}>
+      <Button style={styles.button} onPress={() => navigation.navigate("HtmlCompiler")}>Compiler</Button>
+      <Card item={html[5]} full/> 
+      <Card item={html[0]} full />
+              <Card item={html[1]} full/>
               <Card item={html[2]} full/>
             <Card item={html[3]} full />
             <Card item={html[4]} full />
@@ -42,10 +40,8 @@ class Html extends React.Component {
               <Card item={html[13]} full />
               <Card item={html[14]} full/>
             <Card item={html[15]} full />
-            <Block flex card shadow style={styles.category}>
-            </Block>
-            
-          </Block>
+      
+
           <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
             <ScrollView
               horizontal={true}
@@ -59,11 +55,11 @@ class Html extends React.Component {
                 paddingHorizontal: theme.SIZES.BASE / 2,
               }}
             >
-             
             </ScrollView>
           </Block>
+          </Block>
         </Block>
-      </Block>
+        
     );
   };
 
@@ -90,6 +86,47 @@ const styles = StyleSheet.create({
     paddingTop: theme.SIZES.BASE,
   },
  
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
 });
 
 export default Html;

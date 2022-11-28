@@ -10,7 +10,7 @@ import {
 //argon
 import {  argonTheme, articles } from "../constants/";
 
-import { Card } from "../components/";
+import { Button, Card } from "../components/";
 import React from "react";
 
 const { width } = Dimensions.get("screen");
@@ -61,11 +61,14 @@ class Articles extends React.Component {
   };
 
   renderCards = () => {
+    const { navigation } = this.props;
     return (
+      
       <Block flex style={styles.group}>
       
         <Block flex>
           <Block style={{ paddingHorizontal: theme.SIZES.BASE* 0.375  }}>
+          <Button style={styles.button} onPress={() => navigation.navigate("CssCompiler")}>Compiler</Button>
           <Card item={articles[0]} full />
               <Card item={articles[1]} full/>
               <Card item={articles[2]} full/>

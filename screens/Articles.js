@@ -14,8 +14,6 @@ import { Card } from "../components/";
 import React from "react";
 
 const { width } = Dimensions.get("screen");
-
-const thumbMeasure = (width - 48 - 32) / 3;
 const cardWidth = width - theme.SIZES.BASE * 2;
 
 class Articles extends React.Component {

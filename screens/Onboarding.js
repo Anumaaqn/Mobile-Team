@@ -1,13 +1,11 @@
 import React from "react";
 import {
   ImageBackground,
-  Image,
   StyleSheet,
   StatusBar,
   Dimensions
 } from "react-native";
 import { Block, Button, Text, theme } from "galio-framework";
-import { color } from "react-native-reanimated";
 
 const { height, width } = Dimensions.get("screen");
 
@@ -71,9 +69,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop:'-5%'
   },
-  subTitle: {
-    marginTop: 20
-  }
+ 
 });
 
 export default Onboarding;

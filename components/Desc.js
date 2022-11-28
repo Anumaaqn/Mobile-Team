@@ -1,15 +1,15 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
 import PropTypes from 'prop-types';
-import { StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet,  TouchableWithoutFeedback } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 
 import { argonTheme } from '../constants';
 
 
-class Card extends React.Component {
+class Desc extends React.Component {
   render() {
-    const { navigation, item, horizontal, style, ctaColor } = this.props;
+    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
     
  
     const cardContainer = [styles.card, styles.shadow, style];
@@ -29,7 +29,7 @@ class Card extends React.Component {
   }
 }
 
-Card.propTypes = {
+Desc.propTypes = {
   item: PropTypes.object,
   horizontal: PropTypes.bool,
   full: PropTypes.bool,
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   cardDescription: {
     padding: theme.SIZES.BASE / 1
   },
+ 
   horizontalStyles: {
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
     borderBottomLeftRadius: 0
   },
+
   shadow: {
     shadowColor: theme.COLORS.BLACK,
     shadowOffset: { width: 0, height: 2 },
@@ -70,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(Card);
+export default withNavigation(Desc);
